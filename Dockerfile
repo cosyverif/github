@@ -20,6 +20,7 @@ RUN   apk add --no-cache --virtual .build-deps \
   &&  cd /src/cosy/github/ \
   &&  git clone https://github.com/jprjr/sockexec.git \
   &&  cd sockexec && make && make install && cd .. \
+  &&  mkdir -p /data && cp -r src/www /data/www \
   &&  luarocks install rockspec/lua-resty-qless-develop-0.rockspec \
   &&  luarocks make    rockspec/cosy-github-master-1.rockspec \
   &&  rm -rf /src/cosy/github \
