@@ -1,0 +1,2 @@
+<h1>Available projects</h1>
+<%= user.id %>, <%= user.token %>
