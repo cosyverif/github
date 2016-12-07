@@ -14,7 +14,7 @@ local common = {
   gh_app_name      = assert (os.getenv "GH_APP_NAME"),
   session_name     = "cosy",
   secret           = assert (os.getenv "COSY_SECRET"),
-  postgres    = {
+  postgres = {
     backend  = "pgmoon",
     host     = assert (postgres_url.host),
     port     = assert (postgres_url.port),
@@ -22,11 +22,18 @@ local common = {
     password = assert (os.getenv "POSTGRES_PASSWORD"),
     database = assert (os.getenv "POSTGRES_DATABASE"),
   },
-  redis       = {
+  redis = {
     host     = assert (redis_url.host),
     port     = assert (redis_url.port),
     database = 0,
   },
+  docker = {
+    username = assert (os.getenv "DOCKER_USER"  ),
+    api_key  = assert (os.getenv "DOCKER_SECRET"),
+  },
+  clean = {
+    delay = 10,
+  }
 }
 
 Config ({ "test", "development", "production" }, common)

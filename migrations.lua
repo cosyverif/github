@@ -9,4 +9,12 @@ return {
       { "private", Schema.types.text    { null        = true } },
     })
   end,
+  function ()
+    Schema.create_table ("editors", {
+      { "id"      , Schema.types.integer { primary_key = true } },
+      { "docker"  , Schema.types.text    { null        = true } },
+      { "url"     , Schema.types.text    { null        = true } },
+      { "starting", Schema.types.boolean { default     = true } },
+    })
+  end,
 }
